@@ -4193,6 +4193,7 @@ fn test_linux(target: &str) {
                 || name.starts_with("EPOLL")
                 || name.starts_with("F_")
                 || name.starts_with("FALLOC_FL_")
+                || name.starts_with("HWSIM_")
                 || name.starts_with("IFLA_")
                 || name.starts_with("KEXEC_")
                 || name.starts_with("MS_")
@@ -4660,6 +4661,53 @@ fn test_linux(target: &str) {
 
             // FIXME(linux): Requires >= 6.6 kernel headers.
             "PROC_EVENT_NONZERO_EXIT" => true,
+
+            // mac80211_hwsim constants are defined in the driver header which
+            // is not available to userspace for include generally
+            "HWSIM_CMD_UNSPEC"
+            | "HWSIM_CMD_REGISTER"
+            | "HWSIM_CMD_FRAME"
+            | "HWSIM_CMD_TX_INFO_FRAME"
+            | "HWSIM_CMD_NEW_RADIO"
+            | "HWSIM_CMD_DEL_RADIO"
+            | "HWSIM_CMD_GET_RADIO"
+            | "HWSIM_CMD_ADD_MAC_ADDR"
+            | "HWSIM_CMD_DEL_MAC_ADDR"
+            | "HWSIM_CMD_START_PMSR"
+            | "HWSIM_CMD_ABORT_PMSR"
+            | "HWSIM_CMD_REPORT_PMSR"
+            | "HWSIM_CMD_CREATE_RADIO"
+            | "HWSIM_CMD_DESTROY_RADIO"
+            | "HWSIM_ATTR_UNSPEC"
+            | "HWSIM_ATTR_ADDR_RECEIVER"
+            | "HWSIM_ATTR_ADDR_TRANSMITTER"
+            | "HWSIM_ATTR_FRAME"
+            | "HWSIM_ATTR_FLAGS"
+            | "HWSIM_ATTR_RX_RATE"
+            | "HWSIM_ATTR_SIGNAL"
+            | "HWSIM_ATTR_TX_INFO"
+            | "HWSIM_ATTR_COOKIE"
+            | "HWSIM_ATTR_CHANNELS"
+            | "HWSIM_ATTR_RADIO_ID"
+            | "HWSIM_ATTR_REG_HINT_ALPHA2"
+            | "HWSIM_ATTR_REG_CUSTOM_REG"
+            | "HWSIM_ATTR_REG_STRICT_REG"
+            | "HWSIM_ATTR_SUPPORT_P2P_DEVICE"
+            | "HWSIM_ATTR_USE_CHANCTX"
+            | "HWSIM_ATTR_DESTROY_RADIO_ON_CLOSE"
+            | "HWSIM_ATTR_RADIO_NAME"
+            | "HWSIM_ATTR_NO_VIF"
+            | "HWSIM_ATTR_FREQ"
+            | "HWSIM_ATTR_PAD"
+            | "HWSIM_ATTR_TX_INFO_FLAGS"
+            | "HWSIM_ATTR_PERM_ADDR"
+            | "HWSIM_ATTR_IFTYPE_SUPPORT"
+            | "HWSIM_ATTR_CIPHER_SUPPORT"
+            | "HWSIM_ATTR_MLO_SUPPORT"
+            | "HWSIM_ATTR_PMSR_SUPPORT"
+            | "HWSIM_ATTR_PMSR_REQUEST"
+            | "HWSIM_ATTR_PMSR_RESULT"
+            | "HWSIM_ATTR_MULTI_RADIO" => true,
 
             _ => false,
         }
