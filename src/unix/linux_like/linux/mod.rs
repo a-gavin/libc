@@ -3695,6 +3695,1110 @@ pub const HWSIM_ATTR_MULTI_RADIO: c_int = 29;
 pub const __HWSIM_ATTR_MAX: c_int = 30;
 pub const HWSIM_ATTR_MAX: c_int = __HWSIM_ATTR_MAX - 1;
 
+// linux/nl80211.h
+pub const NL80211_GENL_NAME: &str = "nl80211";
+
+pub const NL80211_MULTICAST_GROUP_CONFIG: &str = "config";
+pub const NL80211_MULTICAST_GROUP_SCAN: &str = "scan";
+pub const NL80211_MULTICAST_GROUP_REG: &str = "regulatory";
+pub const NL80211_MULTICAST_GROUP_MLME: &str = "mlme";
+pub const NL80211_MULTICAST_GROUP_VENDOR: &str = "vendor";
+pub const NL80211_MULTICAST_GROUP_NAN: &str = "nan";
+pub const NL80211_MULTICAST_GROUP_TESTMODE: &str = "testmode";
+
+pub const NL80211_CMD_UNSPEC: c_int = 0;
+pub const NL80211_CMD_GET_WIPHY: c_int = 1;
+pub const NL80211_CMD_SET_WIPHY: c_int = 2;
+pub const NL80211_CMD_NEW_WIPHY: c_int = 3;
+pub const NL80211_CMD_DEL_WIPHY: c_int = 4;
+pub const NL80211_CMD_GET_INTERFACE: c_int = 5;
+pub const NL80211_CMD_SET_INTERFACE: c_int = 6;
+pub const NL80211_CMD_NEW_INTERFACE: c_int = 7;
+pub const NL80211_CMD_DEL_INTERFACE: c_int = 8;
+pub const NL80211_CMD_GET_KEY: c_int = 9;
+pub const NL80211_CMD_SET_KEY: c_int = 10;
+pub const NL80211_CMD_NEW_KEY: c_int = 11;
+pub const NL80211_CMD_DEL_KEY: c_int = 12;
+pub const NL80211_CMD_GET_BEACON: c_int = 14;
+pub const NL80211_CMD_SET_BEACON: c_int = 14;
+pub const NL80211_CMD_START_AP: c_int = 15;
+pub const NL80211_CMD_NEW_BEACON: c_int = NL80211_CMD_START_AP;
+pub const NL80211_CMD_STOP_AP: c_int = 16;
+pub const NL80211_CMD_DEL_BEACON: c_int = NL80211_CMD_STOP_AP;
+pub const NL80211_CMD_GET_STATION: c_int = 17;
+pub const NL80211_CMD_SET_STATION: c_int = 18;
+pub const NL80211_CMD_NEW_STATION: c_int = 19;
+pub const NL80211_CMD_DEL_STATION: c_int = 20;
+pub const NL80211_CMD_GET_MPATH: c_int = 21;
+pub const NL80211_CMD_SET_MPATH: c_int = 22;
+pub const NL80211_CMD_NEW_MPATH: c_int = 23;
+pub const NL80211_CMD_DEL_MPATH: c_int = 24;
+pub const NL80211_CMD_SET_BSS: c_int = 25;
+pub const NL80211_CMD_SET_REG: c_int = 26;
+pub const NL80211_CMD_REQ_SET_REG: c_int = 27;
+pub const NL80211_CMD_GET_MESH_CONFIG: c_int = 28;
+pub const NL80211_CMD_SET_MESH_CONFIG: c_int = 29;
+pub const NL80211_CMD_SET_MGMT_EXTRA_IE: c_int = 30; /* RESERVED; NOT USED */
+pub const NL80211_CMD_GET_REG: c_int = 31;
+pub const NL80211_CMD_GET_SCAN: c_int = 32;
+pub const NL80211_CMD_TRIGGER_SCAN: c_int = 33;
+pub const NL80211_CMD_NEW_SCAN_RESULTS: c_int = 34;
+pub const NL80211_CMD_SCAN_ABORTED: c_int = 35;
+pub const NL80211_CMD_REG_CHANGE: c_int = 36;
+pub const NL80211_CMD_AUTHENTICATE: c_int = 37;
+pub const NL80211_CMD_ASSOCIATE: c_int = 38;
+pub const NL80211_CMD_DEAUTHENTICATE: c_int = 39;
+pub const NL80211_CMD_DISASSOCIATE: c_int = 40;
+pub const NL80211_CMD_MICHAEL_MIC_FAILURE: c_int = 41;
+pub const NL80211_CMD_REG_BEACON_HINT: c_int = 42;
+pub const NL80211_CMD_JOIN_IBSS: c_int = 43;
+pub const NL80211_CMD_LEAVE_IBSS: c_int = 44;
+pub const NL80211_CMD_TESTMODE: c_int = 45;
+pub const NL80211_CMD_CONNECT: c_int = 46;
+pub const NL80211_CMD_ROAM: c_int = 47;
+pub const NL80211_CMD_DISCONNECT: c_int = 48;
+pub const NL80211_CMD_SET_WIPHY_NETNS: c_int = 49;
+pub const NL80211_CMD_GET_SURVEY: c_int = 50;
+pub const NL80211_CMD_NEW_SURVEY_RESULTS: c_int = 51;
+pub const NL80211_CMD_SET_PMKSA: c_int = 52;
+pub const NL80211_CMD_DEL_PMKSA: c_int = 53;
+pub const NL80211_CMD_FLUSH_PMKSA: c_int = 54;
+pub const NL80211_CMD_REMAIN_ON_CHANNEL: c_int = 55;
+pub const NL80211_CMD_CANCEL_REMAIN_ON_CHANNEL: c_int = 56;
+pub const NL80211_CMD_SET_TX_BITRATE_MASK: c_int = 57;
+pub const NL80211_CMD_REGISTER_FRAME: c_int = 58;
+pub const NL80211_CMD_REGISTER_ACTION: c_int = NL80211_CMD_REGISTER_FRAME;
+pub const NL80211_CMD_FRAME: c_int = 59;
+pub const NL80211_CMD_ACTION: c_int = NL80211_CMD_FRAME;
+pub const NL80211_CMD_FRAME_TX_STATUS: c_int = 60;
+pub const NL80211_CMD_ACTION_TX_STATUS: c_int = NL80211_CMD_FRAME_TX_STATUS;
+pub const NL80211_CMD_SET_POWER_SAVE: c_int = 61;
+pub const NL80211_CMD_GET_POWER_SAVE: c_int = 62;
+pub const NL80211_CMD_SET_CQM: c_int = 63;
+pub const NL80211_CMD_NOTIFY_CQM: c_int = 64;
+pub const NL80211_CMD_SET_CHANNEL: c_int = 65;
+pub const NL80211_CMD_SET_WDS_PEER: c_int = 66;
+pub const NL80211_CMD_FRAME_WAIT_CANCEL: c_int = 67;
+pub const NL80211_CMD_JOIN_MESH: c_int = 68;
+pub const NL80211_CMD_LEAVE_MESH: c_int = 69;
+pub const NL80211_CMD_UNPROT_DEAUTHENTICATE: c_int = 70;
+pub const NL80211_CMD_UNPROT_DISASSOCIATE: c_int = 71;
+pub const NL80211_CMD_NEW_PEER_CANDIDATE: c_int = 72;
+pub const NL80211_CMD_GET_WOWLAN: c_int = 73;
+pub const NL80211_CMD_SET_WOWLAN: c_int = 74;
+pub const NL80211_CMD_START_SCHED_SCAN: c_int = 75;
+pub const NL80211_CMD_STOP_SCHED_SCAN: c_int = 76;
+pub const NL80211_CMD_SCHED_SCAN_RESULTS: c_int = 77;
+pub const NL80211_CMD_SCHED_SCAN_STOPPED: c_int = 78;
+pub const NL80211_CMD_SET_REKEY_OFFLOAD: c_int = 79;
+pub const NL80211_CMD_PMKSA_CANDIDATE: c_int = 80;
+pub const NL80211_CMD_TDLS_OPER: c_int = 81;
+pub const NL80211_CMD_TDLS_MGMT: c_int = 82;
+pub const NL80211_CMD_UNEXPECTED_FRAME: c_int = 83;
+pub const NL80211_CMD_PROBE_CLIENT: c_int = 84;
+pub const NL80211_CMD_REGISTER_BEACONS: c_int = 85;
+pub const NL80211_CMD_UNEXPECTED_4ADDR_FRAME: c_int = 86;
+pub const NL80211_CMD_SET_NOACK_MAP: c_int = 87;
+pub const NL80211_CMD_CH_SWITCH_NOTIFY: c_int = 88;
+pub const NL80211_CMD_START_P2P_DEVICE: c_int = 89;
+pub const NL80211_CMD_STOP_P2P_DEVICE: c_int = 90;
+pub const NL80211_CMD_CONN_FAILED: c_int = 91;
+pub const NL80211_CMD_SET_MCAST_RATE: c_int = 92;
+pub const NL80211_CMD_SET_MAC_ACL: c_int = 93;
+pub const NL80211_CMD_RADAR_DETECT: c_int = 94;
+pub const NL80211_CMD_GET_PROTOCOL_FEATURES: c_int = 95;
+pub const NL80211_CMD_UPDATE_FT_IES: c_int = 96;
+pub const NL80211_CMD_FT_EVENT: c_int = 97;
+pub const NL80211_CMD_CRIT_PROTOCOL_START: c_int = 98;
+pub const NL80211_CMD_CRIT_PROTOCOL_STOP: c_int = 99;
+pub const NL80211_CMD_GET_COALESCE: c_int = 100;
+pub const NL80211_CMD_SET_COALESCE: c_int = 101;
+pub const NL80211_CMD_CHANNEL_SWITCH: c_int = 102;
+pub const NL80211_CMD_VENDOR: c_int = 103;
+pub const NL80211_CMD_SET_QOS_MAP: c_int = 104;
+pub const NL80211_CMD_ADD_TX_TS: c_int = 105;
+pub const NL80211_CMD_DEL_TX_TS: c_int = 106;
+pub const NL80211_CMD_GET_MPP: c_int = 107;
+pub const NL80211_CMD_JOIN_OCB: c_int = 108;
+pub const NL80211_CMD_LEAVE_OCB: c_int = 109;
+pub const NL80211_CMD_CH_SWITCH_STARTED_NOTIFY: c_int = 110;
+pub const NL80211_CMD_TDLS_CHANNEL_SWITCH: c_int = 111;
+pub const NL80211_CMD_TDLS_CANCEL_CHANNEL_SWITCH: c_int = 112;
+pub const NL80211_CMD_WIPHY_REG_CHANGE: c_int = 113;
+pub const NL80211_CMD_ABORT_SCAN: c_int = 114;
+pub const NL80211_CMD_START_NAN: c_int = 115;
+pub const NL80211_CMD_STOP_NAN: c_int = 116;
+pub const NL80211_CMD_ADD_NAN_FUNCTION: c_int = 117;
+pub const NL80211_CMD_DEL_NAN_FUNCTION: c_int = 118;
+pub const NL80211_CMD_CHANGE_NAN_CONFIG: c_int = 119;
+pub const NL80211_CMD_NAN_MATCH: c_int = 120;
+pub const NL80211_CMD_SET_MULTICAST_TO_UNICAST: c_int = 121;
+pub const NL80211_CMD_UPDATE_CONNECT_PARAMS: c_int = 122;
+pub const NL80211_CMD_SET_PMK: c_int = 123;
+pub const NL80211_CMD_DEL_PMK: c_int = 124;
+pub const NL80211_CMD_PORT_AUTHORIZED: c_int = 125;
+pub const NL80211_CMD_RELOAD_REGDB: c_int = 126;
+pub const NL80211_CMD_EXTERNAL_AUTH: c_int = 127;
+pub const NL80211_CMD_STA_OPMODE_CHANGED: c_int = 128;
+pub const NL80211_CMD_CONTROL_PORT_FRAME: c_int = 129;
+pub const NL80211_CMD_GET_FTM_RESPONDER_STATS: c_int = 130;
+pub const NL80211_CMD_PEER_MEASUREMENT_START: c_int = 131;
+pub const NL80211_CMD_PEER_MEASUREMENT_RESULT: c_int = 132;
+pub const NL80211_CMD_PEER_MEASUREMENT_COMPLETE: c_int = 133;
+pub const NL80211_CMD_NOTIFY_RADAR: c_int = 134;
+pub const NL80211_CMD_UPDATE_OWE_INFO: c_int = 135;
+pub const NL80211_CMD_PROBE_MESH_LINK: c_int = 136;
+pub const NL80211_CMD_SET_TID_CONFIG: c_int = 137;
+pub const NL80211_CMD_UNPROT_BEACON: c_int = 138;
+pub const NL80211_CMD_CONTROL_PORT_FRAME_TX_STATUS: c_int = 139;
+pub const NL80211_CMD_SET_SAR_SPECS: c_int = 140;
+pub const NL80211_CMD_OBSS_COLOR_COLLISION: c_int = 141;
+pub const NL80211_CMD_COLOR_CHANGE_REQUEST: c_int = 142;
+pub const NL80211_CMD_COLOR_CHANGE_STARTED: c_int = 143;
+pub const NL80211_CMD_COLOR_CHANGE_ABORTED: c_int = 144;
+pub const NL80211_CMD_COLOR_CHANGE_COMPLETED: c_int = 145;
+pub const NL80211_CMD_SET_FILS_AAD: c_int = 146;
+pub const NL80211_CMD_ASSOC_COMEBACK: c_int = 147;
+pub const NL80211_CMD_ADD_LINK: c_int = 148;
+pub const NL80211_CMD_REMOVE_LINK: c_int = 149;
+pub const NL80211_CMD_ADD_LINK_STA: c_int = 150;
+pub const NL80211_CMD_MODIFY_LINK_STA: c_int = 151;
+pub const NL80211_CMD_REMOVE_LINK_STA: c_int = 152;
+pub const NL80211_CMD_SET_HW_TIMESTAMP: c_int = 153;
+pub const NL80211_CMD_LINKS_REMOVED: c_int = 154;
+pub const NL80211_CMD_SET_TID_TO_LINK_MAPPING: c_int = 155;
+pub const NL80211_CMD_ASSOC_MLO_RECONF: c_int = 156;
+pub const NL80211_CMD_EPCS_CFG: c_int = 157;
+pub const __NL80211_CMD_AFTER_LAST: c_int = 158;
+pub const NL80211_CMD_MAX: c_int = __NL80211_CMD_AFTER_LAST - 1;
+
+pub const NL80211_CMD_GET_MESH_PARAMS: c_int = NL80211_CMD_GET_MESH_CONFIG;
+pub const NL80211_CMD_SET_MESH_PARAMS: c_int = NL80211_CMD_SET_MESH_CONFIG;
+pub const NL80211_MESH_SETUP_VENDOR_PATH_SEL_IE: c_int = NL80211_MESH_SETUP_IE;
+
+// nl80211_attr
+pub const NL80211_ATTR_UNSPEC: c_int = 0;
+pub const NL80211_ATTR_WIPHY: c_int = 1;
+pub const NL80211_ATTR_WIPHY_NAME: c_int = 2;
+pub const NL80211_ATTR_IFINDEX: c_int = 3;
+pub const NL80211_ATTR_IFNAME: c_int = 4;
+pub const NL80211_ATTR_IFTYPE: c_int = 5;
+pub const NL80211_ATTR_MAC: c_int = 6;
+pub const NL80211_ATTR_KEY_DATA: c_int = 7;
+pub const NL80211_ATTR_KEY_IDX: c_int = 8;
+pub const NL80211_ATTR_KEY_CIPHER: c_int = 9;
+pub const NL80211_ATTR_KEY_SEQ: c_int = 10;
+pub const NL80211_ATTR_KEY_DEFAULT: c_int = 11;
+pub const NL80211_ATTR_BEACON_INTERVAL: c_int = 12;
+pub const NL80211_ATTR_DTIM_PERIOD: c_int = 13;
+pub const NL80211_ATTR_BEACON_HEAD: c_int = 14;
+pub const NL80211_ATTR_BEACON_TAIL: c_int = 15;
+pub const NL80211_ATTR_STA_AID: c_int = 16;
+pub const NL80211_ATTR_STA_FLAGS: c_int = 17;
+pub const NL80211_ATTR_STA_LISTEN_INTERVAL: c_int = 18;
+pub const NL80211_ATTR_STA_SUPPORTED_RATES: c_int = 19;
+pub const NL80211_ATTR_STA_VLAN: c_int = 20;
+pub const NL80211_ATTR_STA_INFO: c_int = 21;
+pub const NL80211_ATTR_WIPHY_BANDS: c_int = 22;
+pub const NL80211_ATTR_MNTR_FLAGS: c_int = 23;
+pub const NL80211_ATTR_MESH_ID: c_int = 24;
+pub const NL80211_ATTR_STA_PLINK_ACTION: c_int = 25;
+pub const NL80211_ATTR_MPATH_NEXT_HOP: c_int = 26;
+pub const NL80211_ATTR_MPATH_INFO: c_int = 27;
+pub const NL80211_ATTR_BSS_CTSPROT: c_int = 28;
+pub const NL80211_ATTR_BSS_SHORT_PREAMBLE: c_int = 29;
+pub const NL80211_ATTR_BSS_SHORT_SLOT_TIME: c_int = 30;
+pub const NL80211_ATTR_HT_CAPABILITY: c_int = 31;
+pub const NL80211_ATTR_SUPPORTED_IFTYPES: c_int = 32;
+pub const NL80211_ATTR_REG_ALPHA2: c_int = 33;
+pub const NL80211_ATTR_REG_RULES: c_int = 34;
+pub const NL80211_ATTR_MESH_CONFIG: c_int = 35;
+pub const NL80211_ATTR_BSS_BASIC_RATES: c_int = 36;
+pub const NL80211_ATTR_WIPHY_TXQ_PARAMS: c_int = 37;
+pub const NL80211_ATTR_WIPHY_FREQ: c_int = 38;
+pub const NL80211_ATTR_WIPHY_CHANNEL_TYPE: c_int = 39;
+pub const NL80211_ATTR_KEY_DEFAULT_MGMT: c_int = 40;
+pub const NL80211_ATTR_MGMT_SUBTYPE: c_int = 41;
+pub const NL80211_ATTR_IE: c_int = 42;
+pub const NL80211_ATTR_MAX_NUM_SCAN_SSIDS: c_int = 43;
+pub const NL80211_ATTR_SCAN_FREQUENCIES: c_int = 44;
+pub const NL80211_ATTR_SCAN_SSIDS: c_int = 45;
+pub const NL80211_ATTR_GENERATION: c_int = 46;
+pub const NL80211_ATTR_BSS: c_int = 47;
+pub const NL80211_ATTR_REG_INITIATOR: c_int = 48;
+pub const NL80211_ATTR_REG_TYPE: c_int = 49;
+pub const NL80211_ATTR_SUPPORTED_COMMANDS: c_int = 50;
+pub const NL80211_ATTR_FRAME: c_int = 51;
+pub const NL80211_ATTR_SSID: c_int = 52;
+pub const NL80211_ATTR_AUTH_TYPE: c_int = 53;
+pub const NL80211_ATTR_REASON_CODE: c_int = 54;
+pub const NL80211_ATTR_KEY_TYPE: c_int = 55;
+pub const NL80211_ATTR_MAX_SCAN_IE_LEN: c_int = 56;
+pub const NL80211_ATTR_CIPHER_SUITES: c_int = 57;
+pub const NL80211_ATTR_FREQ_BEFORE: c_int = 58;
+pub const NL80211_ATTR_FREQ_AFTER: c_int = 59;
+pub const NL80211_ATTR_FREQ_FIXED: c_int = 60;
+pub const NL80211_ATTR_WIPHY_RETRY_SHORT: c_int = 61;
+pub const NL80211_ATTR_WIPHY_RETRY_LONG: c_int = 62;
+pub const NL80211_ATTR_WIPHY_FRAG_THRESHOLD: c_int = 63;
+pub const NL80211_ATTR_WIPHY_RTS_THRESHOLD: c_int = 64;
+pub const NL80211_ATTR_TIMED_OUT: c_int = 65;
+pub const NL80211_ATTR_USE_MFP: c_int = 66;
+pub const NL80211_ATTR_STA_FLAGS2: c_int = 67;
+pub const NL80211_ATTR_CONTROL_PORT: c_int = 68;
+pub const NL80211_ATTR_TESTDATA: c_int = 69;
+pub const NL80211_ATTR_PRIVACY: c_int = 70;
+pub const NL80211_ATTR_DISCONNECTED_BY_AP: c_int = 71;
+pub const NL80211_ATTR_STATUS_CODE: c_int = 72;
+pub const NL80211_ATTR_CIPHER_SUITES_PAIRWISE: c_int = 73;
+pub const NL80211_ATTR_CIPHER_SUITE_GROUP: c_int = 74;
+pub const NL80211_ATTR_WPA_VERSIONS: c_int = 75;
+pub const NL80211_ATTR_AKM_SUITES: c_int = 76;
+pub const NL80211_ATTR_REQ_IE: c_int = 77;
+pub const NL80211_ATTR_RESP_IE: c_int = 78;
+pub const NL80211_ATTR_PREV_BSSID: c_int = 79;
+pub const NL80211_ATTR_KEY: c_int = 80;
+pub const NL80211_ATTR_KEYS: c_int = 81;
+pub const NL80211_ATTR_PID: c_int = 82;
+pub const NL80211_ATTR_4ADDR: c_int = 83;
+pub const NL80211_ATTR_SURVEY_INFO: c_int = 84;
+pub const NL80211_ATTR_PMKID: c_int = 85;
+pub const NL80211_ATTR_MAX_NUM_PMKIDS: c_int = 86;
+pub const NL80211_ATTR_DURATION: c_int = 87;
+pub const NL80211_ATTR_COOKIE: c_int = 88;
+pub const NL80211_ATTR_WIPHY_COVERAGE_CLASS: c_int = 89;
+pub const NL80211_ATTR_TX_RATES: c_int = 90;
+pub const NL80211_ATTR_FRAME_MATCH: c_int = 91;
+pub const NL80211_ATTR_ACK: c_int = 92;
+pub const NL80211_ATTR_PS_STATE: c_int = 93;
+pub const NL80211_ATTR_CQM: c_int = 94;
+pub const NL80211_ATTR_LOCAL_STATE_CHANGE: c_int = 95;
+pub const NL80211_ATTR_AP_ISOLATE: c_int = 96;
+pub const NL80211_ATTR_WIPHY_TX_POWER_SETTING: c_int = 97;
+pub const NL80211_ATTR_WIPHY_TX_POWER_LEVEL: c_int = 98;
+pub const NL80211_ATTR_TX_FRAME_TYPES: c_int = 99;
+pub const NL80211_ATTR_RX_FRAME_TYPES: c_int = 100;
+pub const NL80211_ATTR_FRAME_TYPE: c_int = 101;
+pub const NL80211_ATTR_CONTROL_PORT_ETHERTYPE: c_int = 102;
+pub const NL80211_ATTR_CONTROL_PORT_NO_ENCRYPT: c_int = 103;
+pub const NL80211_ATTR_SUPPORT_IBSS_RSN: c_int = 104;
+pub const NL80211_ATTR_WIPHY_ANTENNA_TX: c_int = 105;
+pub const NL80211_ATTR_WIPHY_ANTENNA_RX: c_int = 106;
+pub const NL80211_ATTR_MCAST_RATE: c_int = 107;
+pub const NL80211_ATTR_OFF_CHANNEL_TX_OK: c_int = 108;
+pub const NL80211_ATTR_BSS_HT_OPMODE: c_int = 109;
+pub const NL80211_ATTR_KEY_DEFAULT_TYPES: c_int = 110;
+pub const NL80211_ATTR_MAX_REMAIN_ON_CHANNEL_DURATION: c_int = 111;
+pub const NL80211_ATTR_MESH_SETUP: c_int = 112;
+pub const NL80211_ATTR_WIPHY_ANTENNA_AVAIL_TX: c_int = 113;
+pub const NL80211_ATTR_WIPHY_ANTENNA_AVAIL_RX: c_int = 114;
+pub const NL80211_ATTR_SUPPORT_MESH_AUTH: c_int = 115;
+pub const NL80211_ATTR_STA_PLINK_STATE: c_int = 116;
+pub const NL80211_ATTR_WOWLAN_TRIGGERS: c_int = 117;
+pub const NL80211_ATTR_WOWLAN_TRIGGERS_SUPPORTED: c_int = 118;
+pub const NL80211_ATTR_SCHED_SCAN_INTERVAL: c_int = 119;
+pub const NL80211_ATTR_INTERFACE_COMBINATIONS: c_int = 120;
+pub const NL80211_ATTR_SOFTWARE_IFTYPES: c_int = 121;
+pub const NL80211_ATTR_REKEY_DATA: c_int = 122;
+pub const NL80211_ATTR_MAX_NUM_SCHED_SCAN_SSIDS: c_int = 123;
+pub const NL80211_ATTR_MAX_SCHED_SCAN_IE_LEN: c_int = 124;
+pub const NL80211_ATTR_SCAN_SUPP_RATES: c_int = 125;
+pub const NL80211_ATTR_HIDDEN_SSID: c_int = 126;
+pub const NL80211_ATTR_IE_PROBE_RESP: c_int = 127;
+pub const NL80211_ATTR_IE_ASSOC_RESP: c_int = 128;
+pub const NL80211_ATTR_STA_WME: c_int = 129;
+pub const NL80211_ATTR_SUPPORT_AP_UAPSD: c_int = 130;
+pub const NL80211_ATTR_ROAM_SUPPORT: c_int = 131;
+pub const NL80211_ATTR_SCHED_SCAN_MATCH: c_int = 132;
+pub const NL80211_ATTR_MAX_MATCH_SETS: c_int = 133;
+pub const NL80211_ATTR_PMKSA_CANDIDATE: c_int = 134;
+pub const NL80211_ATTR_TX_NO_CCK_RATE: c_int = 135;
+pub const NL80211_ATTR_TDLS_ACTION: c_int = 136;
+pub const NL80211_ATTR_TDLS_DIALOG_TOKEN: c_int = 137;
+pub const NL80211_ATTR_TDLS_OPERATION: c_int = 138;
+pub const NL80211_ATTR_TDLS_SUPPORT: c_int = 139;
+pub const NL80211_ATTR_TDLS_EXTERNAL_SETUP: c_int = 140;
+pub const NL80211_ATTR_DEVICE_AP_SME: c_int = 141;
+pub const NL80211_ATTR_DONT_WAIT_FORACK: c_int = 142;
+pub const NL80211_ATTR_FEATURE_FLAGS: c_int = 143;
+pub const NL80211_ATTR_PROBE_RESP_OFFLOAD: c_int = 144;
+pub const NL80211_ATTR_PROBE_RESP: c_int = 145;
+pub const NL80211_ATTR_DFS_REGION: c_int = 146;
+pub const NL80211_ATTR_DISABLE_HT: c_int = 147;
+pub const NL80211_ATTR_HT_CAPABILITY_MASK: c_int = 148;
+pub const NL80211_ATTR_NO_ACK_MAP: c_int = 149;
+pub const NL80211_ATTR_INACTIVITY_TIMEOUT: c_int = 150;
+pub const NL80211_ATTR_RX_SIGNAL_DBM: c_int = 151;
+pub const NL80211_ATTR_BG_SCAN_PERIOD: c_int = 152;
+pub const NL80211_ATTR_WDEV: c_int = 153;
+pub const NL80211_ATTR_USER_REG_HINT_TYPE: c_int = 154;
+pub const NL80211_ATTR_CONN_FAILED_REASON: c_int = 155;
+pub const NL80211_ATTR_AUTH_DATA: c_int = 156;
+pub const NL80211_ATTR_VHT_CAPABILITY: c_int = 157;
+pub const NL80211_ATTR_SCAN_FLAGS: c_int = 158;
+pub const NL80211_ATTR_CHANNEL_WIDTH: c_int = 159;
+pub const NL80211_ATTR_CENTER_FREQ1: c_int = 160;
+pub const NL80211_ATTR_CENTER_FREQ2: c_int = 161;
+pub const NL80211_ATTR_P2P_CTWINDOW: c_int = 162;
+pub const NL80211_ATTR_P2P_OPPPS: c_int = 163;
+pub const NL80211_ATTR_LOCAL_MESH_POWER_MODE: c_int = 164;
+pub const NL80211_ATTR_ACL_POLICY: c_int = 165;
+pub const NL80211_ATTR_MAC_ADDRS: c_int = 166;
+pub const NL80211_ATTR_MAC_ACL_MAX: c_int = 167;
+pub const NL80211_ATTR_RADAR_EVENT: c_int = 168;
+pub const NL80211_ATTR_EXT_CAPA: c_int = 169;
+pub const NL80211_ATTR_EXT_CAPA_MASK: c_int = 170;
+pub const NL80211_ATTR_STA_CAPABILITY: c_int = 171;
+pub const NL80211_ATTR_STA_EXT_CAPABILITY: c_int = 172;
+pub const NL80211_ATTR_PROTOCOL_FEATURES: c_int = 173;
+pub const NL80211_ATTR_SPLIT_WIPHY_DUMP: c_int = 174;
+pub const NL80211_ATTR_DISABLE_VHT: c_int = 175;
+pub const NL80211_ATTR_VHT_CAPABILITY_MASK: c_int = 176;
+pub const NL80211_ATTR_MDID: c_int = 177;
+pub const NL80211_ATTR_IE_RIC: c_int = 178;
+pub const NL80211_ATTR_CRIT_PROT_ID: c_int = 179;
+pub const NL80211_ATTR_MAX_CRIT_PROT_DURATION: c_int = 180;
+pub const NL80211_ATTR_PEER_AID: c_int = 181;
+pub const NL80211_ATTR_COALESCE_RULE: c_int = 182;
+pub const NL80211_ATTR_CH_SWITCH_COUNT: c_int = 183;
+pub const NL80211_ATTR_CH_SWITCH_BLOCK_TX: c_int = 184;
+pub const NL80211_ATTR_CSA_IES: c_int = 185;
+pub const NL80211_ATTR_CNTDWN_OFFS_BEACON: c_int = 186;
+pub const NL80211_ATTR_CNTDWN_OFFS_PRESP: c_int = 187;
+pub const NL80211_ATTR_RXMGMT_FLAGS: c_int = 188;
+pub const NL80211_ATTR_STA_SUPPORTED_CHANNELS: c_int = 189;
+pub const NL80211_ATTR_STA_SUPPORTED_OPER_CLASSES: c_int = 190;
+pub const NL80211_ATTR_HANDLE_DFS: c_int = 191;
+pub const NL80211_ATTR_SUPPORT_5_MHZ: c_int = 192;
+pub const NL80211_ATTR_SUPPORT_10_MHZ: c_int = 193;
+pub const NL80211_ATTR_OP_MODE_NOTIF: c_int = 194;
+pub const NL80211_ATTR_VENDOR_ID: c_int = 195;
+pub const NL80211_ATTR_VENDOR_SUBCMD: c_int = 196;
+pub const NL80211_ATTR_VENDOR_DATA: c_int = 197;
+pub const NL80211_ATTR_VENDOR_EVENTS: c_int = 198;
+pub const NL80211_ATTR_QOS_MAP: c_int = 199;
+pub const NL80211_ATTR_MACH_INT: c_int = 200;
+pub const NL80211_ATTR_WIPHY_FREQ_HINT: c_int = 201;
+pub const NL80211_ATTR_MAX_AP_ASSOC_STA: c_int = 202;
+pub const NL80211_ATTR_TDLS_PEER_CAPABILITY: c_int = 203;
+pub const NL80211_ATTR_SOCKET_OWNER: c_int = 204;
+pub const NL80211_ATTR_CSA_C_OFFSETS_TX: c_int = 205;
+pub const NL80211_ATTR_MAX_CSA_COUNTERS: c_int = 206;
+pub const NL80211_ATTR_TDLS_INITIATOR: c_int = 207;
+pub const NL80211_ATTR_USE_RRM: c_int = 208;
+pub const NL80211_ATTR_WIPHY_DYN_ACK: c_int = 209;
+pub const NL80211_ATTR_TSID: c_int = 210;
+pub const NL80211_ATTR_USER_PRIO: c_int = 211;
+pub const NL80211_ATTR_ADMITTED_TIME: c_int = 212;
+pub const NL80211_ATTR_SMPS_MODE: c_int = 213;
+pub const NL80211_ATTR_OPER_CLASS: c_int = 214;
+pub const NL80211_ATTR_MAC_MASK: c_int = 215;
+pub const NL80211_ATTR_WIPHY_SELF_MANAGED_REG: c_int = 216;
+pub const NL80211_ATTR_EXT_FEATURES: c_int = 217;
+pub const NL80211_ATTR_SURVEY_RADIO_STATS: c_int = 218;
+pub const NL80211_ATTR_NETNS_FD: c_int = 219;
+pub const NL80211_ATTR_SCHED_SCAN_DELAY: c_int = 220;
+pub const NL80211_ATTR_REG_INDOOR: c_int = 221;
+pub const NL80211_ATTR_MAX_NUM_SCHED_SCAN_PLANS: c_int = 222;
+pub const NL80211_ATTR_MAX_SCAN_PLAN_INTERVAL: c_int = 223;
+pub const NL80211_ATTR_MAX_SCAN_PLAN_ITERATIONS: c_int = 224;
+pub const NL80211_ATTR_SCHED_SCAN_PLANS: c_int = 225;
+pub const NL80211_ATTR_PBSS: c_int = 226;
+pub const NL80211_ATTR_BSS_SELECT: c_int = 227;
+pub const NL80211_ATTR_STA_SUPPORT_P2P_PS: c_int = 228;
+pub const NL80211_ATTR_PAD: c_int = 229;
+pub const NL80211_ATTR_IFTYPE_EXT_CAPA: c_int = 230;
+pub const NL80211_ATTR_MU_MIMO_GROUP_DATA: c_int = 231;
+pub const NL80211_ATTR_MU_MIMO_FOLLOW_MAC_ADDR: c_int = 232;
+pub const NL80211_ATTR_SCAN_START_TIME_TSF: c_int = 233;
+pub const NL80211_ATTR_SCAN_START_TIME_TSF_BSSID: c_int = 234;
+pub const NL80211_ATTR_MEASUREMENT_DURATION: c_int = 235;
+pub const NL80211_ATTR_MEASUREMENT_DURATION_MANDATORY: c_int = 236;
+pub const NL80211_ATTR_MESH_PEER_AID: c_int = 237;
+pub const NL80211_ATTR_NAN_MASTER_PREF: c_int = 238;
+pub const NL80211_ATTR_NAN_DUAL: c_int = 239;
+pub const NL80211_ATTR_NAN_FUNC: c_int = 240;
+pub const NL80211_ATTR_NAN_MATCH: c_int = 241;
+pub const NL80211_ATTR_FILS_KEK: c_int = 242;
+pub const NL80211_ATTR_FILS_NONCES: c_int = 243;
+pub const NL80211_ATTR_MULTICAST_TO_UNICAST_ENABLED: c_int = 244;
+pub const NL80211_ATTR_BSSID: c_int = 245;
+pub const NL80211_ATTR_SCHED_SCAN_RELATIVE_RSSI: c_int = 246;
+pub const NL80211_ATTR_SCHED_SCAN_RSSI_ADJUST: c_int = 247;
+pub const NL80211_ATTR_TIMEOUT_REASON: c_int = 248;
+pub const NL80211_ATTR_FILS_ERP_USERNAME: c_int = 249;
+pub const NL80211_ATTR_FILS_ERP_REALM: c_int = 250;
+pub const NL80211_ATTR_FILS_ERP_NEXT_SEQ_NUM: c_int = 251;
+pub const NL80211_ATTR_FILS_ERP_RRK: c_int = 252;
+pub const NL80211_ATTR_FILS_CACHE_ID: c_int = 253;
+pub const NL80211_ATTR_PMK: c_int = 254;
+pub const NL80211_ATTR_SCHED_SCAN_MULTI: c_int = 255;
+pub const NL80211_ATTR_SCHED_SCAN_MAX_REQS: c_int = 256;
+pub const NL80211_ATTR_WANT_1X_4WAY_HS: c_int = 257;
+pub const NL80211_ATTR_PMKR0_NAME: c_int = 258;
+pub const NL80211_ATTR_PORT_AUTHORIZED: c_int = 259;
+pub const NL80211_ATTR_EXTERNAL_AUTH_ACTION: c_int = 260;
+pub const NL80211_ATTR_EXTERNAL_AUTH_SUPPORT: c_int = 261;
+pub const NL80211_ATTR_NSS: c_int = 262;
+pub const NL80211_ATTR_ACK_SIGNAL: c_int = 263;
+pub const NL80211_ATTR_CONTROL_PORT_OVER_NL80211: c_int = 264;
+pub const NL80211_ATTR_TXQ_STATS: c_int = 265;
+pub const NL80211_ATTR_TXQ_LIMIT: c_int = 266;
+pub const NL80211_ATTR_TXQ_MEMORY_LIMIT: c_int = 267;
+pub const NL80211_ATTR_TXQ_QUANTUM: c_int = 268;
+pub const NL80211_ATTR_HE_CAPABILITY: c_int = 269;
+pub const NL80211_ATTR_FTM_RESPONDER: c_int = 270;
+pub const NL80211_ATTR_FTM_RESPONDER_STATS: c_int = 271;
+pub const NL80211_ATTR_TIMEOUT: c_int = 272;
+pub const NL80211_ATTR_PEER_MEASUREMENTS: c_int = 273;
+pub const NL80211_ATTR_AIRTIME_WEIGHT: c_int = 274;
+pub const NL80211_ATTR_STA_TX_POWER_SETTING: c_int = 275;
+pub const NL80211_ATTR_STA_TX_POWER: c_int = 276;
+pub const NL80211_ATTR_SAE_PASSWORD: c_int = 277;
+pub const NL80211_ATTR_TWT_RESPONDER: c_int = 278;
+pub const NL80211_ATTR_HE_OBSS_PD: c_int = 279;
+pub const NL80211_ATTR_WIPHY_EDMG_CHANNELS: c_int = 280;
+pub const NL80211_ATTR_WIPHY_EDMG_BW_CONFIG: c_int = 281;
+pub const NL80211_ATTR_VLAN_ID: c_int = 282;
+pub const NL80211_ATTR_HE_BSS_COLOR: c_int = 283;
+pub const NL80211_ATTR_IFTYPE_AKM_SUITES: c_int = 284;
+pub const NL80211_ATTR_TID_CONFIG: c_int = 285;
+pub const NL80211_ATTR_CONTROL_PORT_NO_PREAUTH: c_int = 286;
+pub const NL80211_ATTR_PMK_LIFETIME: c_int = 287;
+pub const NL80211_ATTR_PMK_REAUTH_THRESHOLD: c_int = 288;
+pub const NL80211_ATTR_RECEIVE_MULTICAST: c_int = 289;
+pub const NL80211_ATTR_WIPHY_FREQ_OFFSET: c_int = 290;
+pub const NL80211_ATTR_CENTER_FREQ1_OFFSET: c_int = 291;
+pub const NL80211_ATTR_SCAN_FREQ_KHZ: c_int = 292;
+pub const NL80211_ATTR_HE_6GHZ_CAPABILITY: c_int = 293;
+pub const NL80211_ATTR_FILS_DISCOVERY: c_int = 294;
+pub const NL80211_ATTR_UNSOL_BCAST_PROBE_RESP: c_int = 295;
+pub const NL80211_ATTR_S1G_CAPABILITY: c_int = 296;
+pub const NL80211_ATTR_S1G_CAPABILITY_MASK: c_int = 297;
+pub const NL80211_ATTR_SAE_PWE: c_int = 298;
+pub const NL80211_ATTR_RECONNECT_REQUESTED: c_int = 299;
+pub const NL80211_ATTR_SAR_SPEC: c_int = 300;
+pub const NL80211_ATTR_DISABLE_HE: c_int = 301;
+pub const NL80211_ATTR_OBSS_COLOR_BITMAP: c_int = 302;
+pub const NL80211_ATTR_COLOR_CHANGE_COUNT: c_int = 303;
+pub const NL80211_ATTR_COLOR_CHANGE_COLOR: c_int = 304;
+pub const NL80211_ATTR_COLOR_CHANGE_ELEMS: c_int = 305;
+pub const NL80211_ATTR_MBSSID_CONFIG: c_int = 306;
+pub const NL80211_ATTR_MBSSID_ELEMS: c_int = 307;
+pub const NL80211_ATTR_RADAR_BACKGROUND: c_int = 308;
+pub const NL80211_ATTR_AP_SETTINGS_FLAGS: c_int = 309;
+pub const NL80211_ATTR_EHT_CAPABILITY: c_int = 310;
+pub const NL80211_ATTR_DISABLE_EHT: c_int = 311;
+pub const NL80211_ATTR_MLO_LINKS: c_int = 312;
+pub const NL80211_ATTR_MLO_LINK_ID: c_int = 313;
+pub const NL80211_ATTR_MLD_ADDR: c_int = 314;
+pub const NL80211_ATTR_MLO_SUPPORT: c_int = 315;
+pub const NL80211_ATTR_MAX_NUM_AKM_SUITES: c_int = 316;
+pub const NL80211_ATTR_EML_CAPABILITY: c_int = 317;
+pub const NL80211_ATTR_MLD_CAPA_AND_OPS: c_int = 318;
+pub const NL80211_ATTR_TX_HW_TIMESTAMP: c_int = 319;
+pub const NL80211_ATTR_RX_HW_TIMESTAMP: c_int = 320;
+pub const NL80211_ATTR_TD_BITMAP: c_int = 321;
+pub const NL80211_ATTR_PUNCT_BITMAP: c_int = 322;
+pub const NL80211_ATTR_MAX_HW_TIMESTAMP_PEERS: c_int = 323;
+pub const NL80211_ATTR_HW_TIMESTAMP_ENABLED: c_int = 324;
+pub const NL80211_ATTR_EMA_RNR_ELEMS: c_int = 325;
+pub const NL80211_ATTR_MLO_LINK_DISABLED: c_int = 326;
+pub const NL80211_ATTR_BSS_DUMP_INCLUDE_USE_DATA: c_int = 327;
+pub const NL80211_ATTR_MLO_TTLM_DLINK: c_int = 328;
+pub const NL80211_ATTR_MLO_TTLM_ULINK: c_int = 329;
+pub const NL80211_ATTR_ASSOC_SPP_AMSDU: c_int = 330;
+pub const NL80211_ATTR_WIPHY_RADIOS: c_int = 331;
+pub const NL80211_ATTR_WIPHY_INTERFACE_COMBINATIONS: c_int = 332;
+pub const NL80211_ATTR_VIF_RADIO_MASK: c_int = 333;
+pub const NL80211_ATTR_SUPPORTED_SELECTORS: c_int = 334;
+pub const NL80211_ATTR_MLO_RECONF_REM_LINKS: c_int = 335;
+pub const NL80211_ATTR_EPCS: c_int = 336;
+pub const NL80211_ATTR_ASSOC_MLD_EXT_CAPA_OPS: c_int = 337;
+pub const NL80211_ATTR_WIPHY_RADIO_INDEX: c_int = 338;
+pub const __NL80211_ATTR_AFTER_LAST: c_int = 339;
+pub const NUM_NL80211_ATTR: c_int = __NL80211_ATTR_AFTER_LAST;
+pub const NL80211_ATTR_MAX: c_int = __NL80211_ATTR_AFTER_LAST - 1;
+
+pub const NL80211_ATTR_SCAN_GENERATION: c_int = NL80211_ATTR_GENERATION;
+pub const NL80211_ATTR_MESH_PARAMS: c_int = NL80211_ATTR_MESH_CONFIG;
+pub const NL80211_ATTR_IFACE_SOCKET_OWNER: c_int = NL80211_ATTR_SOCKET_OWNER;
+pub const NL80211_ATTR_SAE_DATA: c_int = NL80211_ATTR_AUTH_DATA;
+pub const NL80211_ATTR_CSA_C_OFF_BEACON: c_int = NL80211_ATTR_CNTDWN_OFFS_BEACON;
+pub const NL80211_ATTR_CSA_C_OFF_PRESP: c_int = NL80211_ATTR_CNTDWN_OFFS_PRESP;
+
+pub const NL80211_WIPHY_NAME_MAXLEN: c_int = 64;
+
+pub const NL80211_MAX_SUPP_RATES: c_int = 32;
+pub const NL80211_MAX_SUPP_SELECTORS: c_int = 128;
+pub const NL80211_MAX_SUPP_HT_RATES: c_int = 77;
+pub const NL80211_MAX_SUPP_REG_RULES: c_int = 128;
+pub const NL80211_TKIP_DATA_OFFSET_ENCR_KEY: c_int = 0;
+pub const NL80211_TKIP_DATA_OFFSET_TX_MIC_KEY: c_int = 16;
+pub const NL80211_TKIP_DATA_OFFSET_RX_MIC_KEY: c_int = 24;
+pub const NL80211_HT_CAPABILITY_LEN: c_int = 26;
+pub const NL80211_VHT_CAPABILITY_LEN: c_int = 12;
+pub const NL80211_HE_MIN_CAPABILITY_LEN: c_int = 16;
+pub const NL80211_HE_MAX_CAPABILITY_LEN: c_int = 54;
+pub const NL80211_MAX_NR_CIPHER_SUITES: c_int = 5;
+
+pub const NL80211_MAX_NR_AKM_SUITES: c_int = 2;
+pub const NL80211_EHT_MIN_CAPABILITY_LEN: c_int = 13;
+pub const NL80211_EHT_MAX_CAPABILITY_LEN: c_int = 51;
+
+pub const NL80211_MIN_REMAIN_ON_CHANNEL_TIME: c_int = 10;
+
+pub const NL80211_SCAN_RSSI_THOLD_OFF: c_int = -300;
+
+pub const NL80211_CQM_TXE_MAX_INTVL: c_int = 1800;
+
+// nl80211_iftype
+pub const NL80211_IFTYPE_UNSPECIFIED: c_int = 0;
+pub const NL80211_IFTYPE_ADHOC: c_int = 1;
+pub const NL80211_IFTYPE_STATION: c_int = 2;
+pub const NL80211_IFTYPE_AP: c_int = 3;
+pub const NL80211_IFTYPE_AP_VLAN: c_int = 4;
+pub const NL80211_IFTYPE_WDS: c_int = 5;
+pub const NL80211_IFTYPE_MONITOR: c_int = 6;
+pub const NL80211_IFTYPE_MESH_POINT: c_int = 7;
+pub const NL80211_IFTYPE_P2P_CLIENT: c_int = 8;
+pub const NL80211_IFTYPE_P2P_GO: c_int = 9;
+pub const NL80211_IFTYPE_P2P_DEVICE: c_int = 10;
+pub const NL80211_IFTYPE_OCB: c_int = 11;
+pub const NL80211_IFTYPE_NAN: c_int = 12;
+pub const NUM_NL80211_IFTYPES: c_int = 13;
+pub const NL80211_IFTYPE_MAX: c_int = NUM_NL80211_IFTYPES - 1;
+
+// nl80211_sta_flags
+pub const __NL80211_STA_FLAG_INVALID: c_int = 0;
+pub const NL80211_STA_FLAG_AUTHORIZED: c_int = 1;
+pub const NL80211_STA_FLAG_SHORT_PREAMBLE: c_int = 2;
+pub const NL80211_STA_FLAG_WME: c_int = 3;
+pub const NL80211_STA_FLAG_MFP: c_int = 4;
+pub const NL80211_STA_FLAG_AUTHENTICATED: c_int = 5;
+pub const NL80211_STA_FLAG_TDLS_PEER: c_int = 6;
+pub const NL80211_STA_FLAG_ASSOCIATED: c_int = 7;
+pub const NL80211_STA_FLAG_SPP_AMSDU: c_int = 8;
+pub const __NL80211_STA_FLAG_AFTER_LAST: c_int = 9;
+pub const NL80211_STA_FLAG_MAX: c_int = __NL80211_STA_FLAG_AFTER_LAST - 1;
+
+// nl80211_sta_p2p_ps_status
+pub const NL80211_P2P_PS_UNSUPPORTED: c_int = 0;
+pub const NL80211_P2P_PS_SUPPORTED: c_int = 1;
+pub const NUM_NL80211_P2P_PS_STATUS: c_int = 2;
+
+pub const NL80211_STA_FLAG_MAX_OLD_API: c_int = NL80211_STA_FLAG_TDLS_PEER;
+
+// nl80211_sta_flag_update
+// TODO: Struct
+
+// nl80211_he_gi
+pub const NL80211_RATE_INFO_HE_GI_0_8: c_int = 0;
+pub const NL80211_RATE_INFO_HE_GI_1_6: c_int = 1;
+pub const NL80211_RATE_INFO_HE_GI_3_2: c_int = 2;
+
+// nl80211_he_ltf
+pub const NL80211_RATE_INFO_HE_1XLTF: c_int = 0;
+pub const NL80211_RATE_INFO_HE_2XLTF: c_int = 1;
+pub const NL80211_RATE_INFO_HE_4XLTF: c_int = 2;
+
+// nl80211_he_ru_alloc
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_26: c_int = 0;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_52: c_int = 1;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_106: c_int = 2;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_242: c_int = 3;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_484: c_int = 4;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_996: c_int = 5;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC_2x996: c_int = 6;
+
+// nl80211_eht_gi
+pub const NL80211_RATE_INFO_EHT_GI_0_8: c_int = 0;
+pub const NL80211_RATE_INFO_EHT_GI_1_6: c_int = 1;
+pub const NL80211_RATE_INFO_EHT_GI_3_2: c_int = 2;
+
+// nl80211_eht_ru_alloc
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_26: c_int = 0;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_52: c_int = 1;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_52P26: c_int = 2;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_106: c_int = 3;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_106P26: c_int = 4;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_242: c_int = 5;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_484: c_int = 6;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_484P242: c_int = 7;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_996: c_int = 8;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_996P484: c_int = 9;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_996P484P242: c_int = 10;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_2x996: c_int = 11;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_2x996P484: c_int = 12;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_3x996: c_int = 13;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_3x996P484: c_int = 14;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC_4x996: c_int = 15;
+
+// nl80211_rate_info
+pub const __NL80211_RATE_INFO_INVALID: c_int = 0;
+pub const NL80211_RATE_INFO_BITRATE: c_int = 1;
+pub const NL80211_RATE_INFO_MCS: c_int = 2;
+pub const NL80211_RATE_INFO_40_MHZ_WIDTH: c_int = 3;
+pub const NL80211_RATE_INFO_SHORT_GI: c_int = 4;
+pub const NL80211_RATE_INFO_BITRATE32: c_int = 5;
+pub const NL80211_RATE_INFO_VHT_MCS: c_int = 6;
+pub const NL80211_RATE_INFO_VHT_NSS: c_int = 7;
+pub const NL80211_RATE_INFO_80_MHZ_WIDTH: c_int = 8;
+pub const NL80211_RATE_INFO_80P80_MHZ_WIDTH: c_int = 9;
+pub const NL80211_RATE_INFO_160_MHZ_WIDTH: c_int = 10;
+pub const NL80211_RATE_INFO_10_MHZ_WIDTH: c_int = 11;
+pub const NL80211_RATE_INFO_5_MHZ_WIDTH: c_int = 12;
+pub const NL80211_RATE_INFO_HE_MCS: c_int = 13;
+pub const NL80211_RATE_INFO_HE_NSS: c_int = 14;
+pub const NL80211_RATE_INFO_HE_GI: c_int = 15;
+pub const NL80211_RATE_INFO_HE_DCM: c_int = 16;
+pub const NL80211_RATE_INFO_HE_RU_ALLOC: c_int = 17;
+pub const NL80211_RATE_INFO_320_MHZ_WIDTH: c_int = 18;
+pub const NL80211_RATE_INFO_EHT_MCS: c_int = 19;
+pub const NL80211_RATE_INFO_EHT_NSS: c_int = 20;
+pub const NL80211_RATE_INFO_EHT_GI: c_int = 21;
+pub const NL80211_RATE_INFO_EHT_RU_ALLOC: c_int = 22;
+pub const NL80211_RATE_INFO_S1G_MCS: c_int = 23;
+pub const NL80211_RATE_INFO_S1G_NSS: c_int = 24;
+pub const NL80211_RATE_INFO_1_MHZ_WIDTH: c_int = 25;
+pub const NL80211_RATE_INFO_2_MHZ_WIDTH: c_int = 26;
+pub const NL80211_RATE_INFO_4_MHZ_WIDTH: c_int = 27;
+pub const NL80211_RATE_INFO_8_MHZ_WIDTH: c_int = 28;
+pub const NL80211_RATE_INFO_16_MHZ_WIDTH: c_int = 29;
+pub const __NL80211_RATE_INFO_AFTER_LAST: c_int = 30;
+pub const NL80211_RATE_INFO_MAX: c_int = __NL80211_RATE_INFO_AFTER_LAST - 1;
+
+// nl80211_sta_bss_param
+pub const __NL80211_STA_BSS_PARAM_INVALID: c_int = 0;
+pub const NL80211_STA_BSS_PARAM_CTS_PROT: c_int = 1;
+pub const NL80211_STA_BSS_PARAM_SHORT_PREAMBLE: c_int = 2;
+pub const NL80211_STA_BSS_PARAM_SHORT_SLOT_TIME: c_int = 3;
+pub const NL80211_STA_BSS_PARAM_DTIM_PERIOD: c_int = 4;
+pub const NL80211_STA_BSS_PARAM_BEACON_INTERVAL: c_int = 5;
+pub const __NL80211_STA_BSS_PARAM_AFTER_LAST: c_int = 6;
+pub const NL80211_STA_BSS_PARAM_MAX: c_int = __NL80211_STA_BSS_PARAM_AFTER_LAST - 1;
+
+// nl80211_sta_info
+pub const __NL80211_STA_INFO_INVALID: c_int = 0;
+pub const NL80211_STA_INFO_INACTIVE_TIME: c_int = 1;
+pub const NL80211_STA_INFO_RX_BYTES: c_int = 2;
+pub const NL80211_STA_INFO_TX_BYTES: c_int = 3;
+pub const NL80211_STA_INFO_LLID: c_int = 4;
+pub const NL80211_STA_INFO_PLID: c_int = 5;
+pub const NL80211_STA_INFO_PLINK_STATE: c_int = 6;
+pub const NL80211_STA_INFO_SIGNAL: c_int = 7;
+pub const NL80211_STA_INFO_TX_BITRATE: c_int = 8;
+pub const NL80211_STA_INFO_RX_PACKETS: c_int = 9;
+pub const NL80211_STA_INFO_TX_PACKETS: c_int = 10;
+pub const NL80211_STA_INFO_TX_RETRIES: c_int = 11;
+pub const NL80211_STA_INFO_TX_FAILED: c_int = 12;
+pub const NL80211_STA_INFO_SIGNAL_AVG: c_int = 13;
+pub const NL80211_STA_INFO_RX_BITRATE: c_int = 14;
+pub const NL80211_STA_INFO_BSS_PARAM: c_int = 15;
+pub const NL80211_STA_INFO_CONNECTED_TIME: c_int = 16;
+pub const NL80211_STA_INFO_STA_FLAGS: c_int = 17;
+pub const NL80211_STA_INFO_BEACON_LOSS: c_int = 18;
+pub const NL80211_STA_INFO_T_OFFSET: c_int = 19;
+pub const NL80211_STA_INFO_LOCAL_PM: c_int = 20;
+pub const NL80211_STA_INFO_PEER_PM: c_int = 21;
+pub const NL80211_STA_INFO_NONPEER_PM: c_int = 22;
+pub const NL80211_STA_INFO_RX_BYTES64: c_int = 23;
+pub const NL80211_STA_INFO_TX_BYTES64: c_int = 24;
+pub const NL80211_STA_INFO_CHAIN_SIGNAL: c_int = 25;
+pub const NL80211_STA_INFO_CHAIN_SIGNAL_AVG: c_int = 26;
+pub const NL80211_STA_INFO_EXPECTED_THROUGHPUT: c_int = 27;
+pub const NL80211_STA_INFO_RX_DROP_MISC: c_int = 28;
+pub const NL80211_STA_INFO_BEACON_RX: c_int = 29;
+pub const NL80211_STA_INFO_BEACON_SIGNAL_AVG: c_int = 30;
+pub const NL80211_STA_INFO_TID_STATS: c_int = 31;
+pub const NL80211_STA_INFO_RX_DURATION: c_int = 32;
+pub const NL80211_STA_INFO_PAD: c_int = 33;
+pub const NL80211_STA_INFO_ACK_SIGNAL: c_int = 34;
+pub const NL80211_STA_INFO_ACK_SIGNAL_AVG: c_int = 35;
+pub const NL80211_STA_INFO_RX_MPDUS: c_int = 36;
+pub const NL80211_STA_INFO_FCS_ERROR_COUNT: c_int = 37;
+pub const NL80211_STA_INFO_CONNECTED_TO_GATE: c_int = 38;
+pub const NL80211_STA_INFO_TX_DURATION: c_int = 39;
+pub const NL80211_STA_INFO_AIRTIME_WEIGHT: c_int = 40;
+pub const NL80211_STA_INFO_AIRTIME_LINK_METRIC: c_int = 41;
+pub const NL80211_STA_INFO_ASSOC_AT_BOOTTIME: c_int = 42;
+pub const NL80211_STA_INFO_CONNECTED_TO_AS: c_int = 43;
+pub const __NL80211_STA_INFO_AFTER_LAST: c_int = 44;
+pub const NL80211_STA_INFO_MAX: c_int = __NL80211_STA_INFO_AFTER_LAST - 1;
+
+pub const NL80211_STA_INFO_DATA_ACK_SIGNAL_AVG: c_int = NL80211_STA_INFO_ACK_SIGNAL_AVG;
+
+// nl80211_tid_stats
+pub const __NL80211_TID_STATS_INVALID: c_int = 0;
+pub const NL80211_TID_STATS_RX_MSDU: c_int = 1;
+pub const NL80211_TID_STATS_TX_MSDU: c_int = 2;
+pub const NL80211_TID_STATS_TX_MSDU_RETRIES: c_int = 3;
+pub const NL80211_TID_STATS_TX_MSDU_FAILED: c_int = 4;
+pub const NL80211_TID_STATS_PAD: c_int = 5;
+pub const NL80211_TID_STATS_TXQ_STATS: c_int = 6;
+pub const NUM_NL80211_TID_STATS: c_int = 7;
+pub const NL80211_TID_STATS_MAX: c_int = NUM_NL80211_TID_STATS - 1;
+
+// nl80211_txq_stats
+pub const __NL80211_TXQ_STATS_INVALID: c_int = 0;
+pub const NL80211_TXQ_STATS_BACKLOG_BYTES: c_int = 1;
+pub const NL80211_TXQ_STATS_BACKLOG_PACKETS: c_int = 2;
+pub const NL80211_TXQ_STATS_FLOWS: c_int = 3;
+pub const NL80211_TXQ_STATS_DROPS: c_int = 4;
+pub const NL80211_TXQ_STATS_ECN_MARKS: c_int = 5;
+pub const NL80211_TXQ_STATS_OVERLIMIT: c_int = 6;
+pub const NL80211_TXQ_STATS_OVERMEMORY: c_int = 7;
+pub const NL80211_TXQ_STATS_COLLISIONS: c_int = 8;
+pub const NL80211_TXQ_STATS_TX_BYTES: c_int = 9;
+pub const NL80211_TXQ_STATS_TX_PACKETS: c_int = 10;
+pub const NL80211_TXQ_STATS_MAX_FLOWS: c_int = 11;
+pub const NUM_NL80211_TXQ_STATS: c_int = 12;
+pub const NL80211_TXQ_STATS_MAX: c_int = NUM_NL80211_TXQ_STATS - 1;
+
+// nl80211_mpath_flags
+pub const NL80211_MPATH_FLAG_ACTIVE: c_int = 1 << 0;
+pub const NL80211_MPATH_FLAG_RESOLVING: c_int = 1 << 1;
+pub const NL80211_MPATH_FLAG_SN_VALID: c_int = 1 << 2;
+pub const NL80211_MPATH_FLAG_FIXED: c_int = 1 << 3;
+pub const NL80211_MPATH_FLAG_RESOLVED: c_int = 1 << 4;
+
+// nl80211_mpath_info
+pub const __NL80211_MPATH_INFO_INVALID: c_int = 0;
+pub const NL80211_MPATH_INFO_FRAME_QLEN: c_int = 1;
+pub const NL80211_MPATH_INFO_SN: c_int = 2;
+pub const NL80211_MPATH_INFO_METRIC: c_int = 3;
+pub const NL80211_MPATH_INFO_EXPTIME: c_int = 4;
+pub const NL80211_MPATH_INFO_FLAGS: c_int = 5;
+pub const NL80211_MPATH_INFO_DISCOVERY_TIMEOUT: c_int = 6;
+pub const NL80211_MPATH_INFO_DISCOVERY_RETRIES: c_int = 7;
+pub const NL80211_MPATH_INFO_HOP_COUNT: c_int = 8;
+pub const NL80211_MPATH_INFO_PATH_CHANGE: c_int = 9;
+pub const __NL80211_MPATH_INFO_AFTER_LAST: c_int = 10;
+pub const NL80211_MPATH_INFO_MAX: c_int = __NL80211_MPATH_INFO_AFTER_LAST - 1;
+
+// nl80211_band_iftype_attr
+pub const __NL80211_BAND_IFTYPE_ATTR_INVALID: c_int = 0;
+pub const NL80211_BAND_IFTYPE_ATTR_IFTYPES: c_int = 1;
+pub const NL80211_BAND_IFTYPE_ATTR_HE_CAP_MAC: c_int = 2;
+pub const NL80211_BAND_IFTYPE_ATTR_HE_CAP_PHY: c_int = 3;
+pub const NL80211_BAND_IFTYPE_ATTR_HE_CAP_MCS_SET: c_int = 4;
+pub const NL80211_BAND_IFTYPE_ATTR_HE_CAP_PPE: c_int = 5;
+pub const NL80211_BAND_IFTYPE_ATTR_HE_6GHZ_CAPA: c_int = 6;
+pub const NL80211_BAND_IFTYPE_ATTR_VENDOR_ELEMS: c_int = 7;
+pub const NL80211_BAND_IFTYPE_ATTR_EHT_CAP_MAC: c_int = 8;
+pub const NL80211_BAND_IFTYPE_ATTR_EHT_CAP_PHY: c_int = 9;
+pub const NL80211_BAND_IFTYPE_ATTR_EHT_CAP_MCS_SET: c_int = 10;
+pub const NL80211_BAND_IFTYPE_ATTR_EHT_CAP_PPE: c_int = 11;
+pub const __NL80211_BAND_IFTYPE_ATTR_AFTER_LAST: c_int = 12;
+pub const NL80211_BAND_IFTYPE_ATTR_MAX: c_int = __NL80211_BAND_IFTYPE_ATTR_AFTER_LAST - 1;
+
+// nl80211_band_attr
+pub const __NL80211_BAND_ATTR_INVALID: c_int = 0;
+pub const NL80211_BAND_ATTR_FREQS: c_int = 1;
+pub const NL80211_BAND_ATTR_RATES: c_int = 2;
+pub const NL80211_BAND_ATTR_HT_MCS_SET: c_int = 3;
+pub const NL80211_BAND_ATTR_HT_CAPA: c_int = 4;
+pub const NL80211_BAND_ATTR_HT_AMPDU_FACTOR: c_int = 5;
+pub const NL80211_BAND_ATTR_HT_AMPDU_DENSITY: c_int = 6;
+pub const NL80211_BAND_ATTR_VHT_MCS_SET: c_int = 7;
+pub const NL80211_BAND_ATTR_VHT_CAPA: c_int = 8;
+pub const NL80211_BAND_ATTR_IFTYPE_DATA: c_int = 9;
+pub const NL80211_BAND_ATTR_EDMG_CHANNELS: c_int = 10;
+pub const NL80211_BAND_ATTR_EDMG_BW_CONFIG: c_int = 11;
+pub const NL80211_BAND_ATTR_S1G_MCS_NSS_SET: c_int = 12;
+pub const NL80211_BAND_ATTR_S1G_CAPA: c_int = 13;
+pub const __NL80211_BAND_ATTR_AFTER_LAST: c_int = 14;
+pub const NL80211_BAND_ATTR_MAX: c_int = __NL80211_BAND_ATTR_AFTER_LAST - 1;
+
+// nl80211_wmm_rule
+pub const __NL80211_WMMR_INVALID: c_int = 0;
+pub const NL80211_WMMR_CW_MIN: c_int = 1;
+pub const NL80211_WMMR_CW_MAX: c_int = 2;
+pub const NL80211_WMMR_AIFSN: c_int = 3;
+pub const NL80211_WMMR_TXOP: c_int = 4;
+pub const __NL80211_WMMR_LAST: c_int = 5;
+pub const NL80211_WMMR_MAX: c_int = __NL80211_WMMR_LAST - 1;
+
+// nl80211_frequency_attr
+// TODO
+// #define NL80211_FREQUENCY_ATTR_MAX_TX_POWER NL80211_FREQUENCY_ATTR_MAX_TX_POWER
+// #define NL80211_FREQUENCY_ATTR_PASSIVE_SCAN	NL80211_FREQUENCY_ATTR_NO_IR
+// #define NL80211_FREQUENCY_ATTR_NO_IBSS		NL80211_FREQUENCY_ATTR_NO_IR
+// #define NL80211_FREQUENCY_ATTR_NO_IR		NL80211_FREQUENCY_ATTR_NO_IR
+// #define NL80211_FREQUENCY_ATTR_GO_CONCURRENT \
+// 					NL80211_FREQUENCY_ATTR_IR_CONCURRENT
+// #define NL80211_FREQUENCY_ATTR_NO_UHB_VLP_CLIENT \
+// 	NL80211_FREQUENCY_ATTR_NO_6GHZ_VLP_CLIENT
+// #define NL80211_FREQUENCY_ATTR_NO_UHB_AFC_CLIENT \
+// 	NL80211_FREQUENCY_ATTR_NO_6GHZ_AFC_CLIENT
+
+// nl80211_bitrate_attr
+// TODO
+
+// nl80211_reg_initiator
+// TODO
+
+// nl80211_reg_type
+// TODO
+
+// nl80211_reg_rule_attr
+// TODO
+
+// nl80211_sched_scan_match_attr
+// TODO
+// #define NL80211_ATTR_SCHED_SCAN_MATCH_SSID NL80211_SCHED_SCAN_MATCH_ATTR_SSID
+
+// nl80211_reg_rule_flags
+// TODO
+// #define NL80211_RRF_PASSIVE_SCAN	NL80211_RRF_NO_IR
+// #define NL80211_RRF_NO_IBSS		NL80211_RRF_NO_IR
+// #define NL80211_RRF_NO_IR		NL80211_RRF_NO_IR
+// #define NL80211_RRF_NO_HT40		(NL80211_RRF_NO_HT40MINUS |\
+// 					 NL80211_RRF_NO_HT40PLUS)
+// #define NL80211_RRF_GO_CONCURRENT	NL80211_RRF_IR_CONCURRENT
+// #define NL80211_RRF_NO_UHB_VLP_CLIENT	NL80211_RRF_NO_6GHZ_VLP_CLIENT
+// #define NL80211_RRF_NO_UHB_AFC_CLIENT	NL80211_RRF_NO_6GHZ_AFC_CLIENT
+//
+// /* For backport compatibility with older userspace */
+// #define NL80211_RRF_NO_IR_ALL		(NL80211_RRF_NO_IR | __NL80211_RRF_NO_IBSS)
+
+// nl80211_dfs_regions
+// TODO
+
+// nl80211_user_reg_hint_type
+// TODO
+
+// nl80211_survey_info
+// TODO
+// #define NL80211_SURVEY_INFO_CHANNEL_TIME		NL80211_SURVEY_INFO_TIME
+// #define NL80211_SURVEY_INFO_CHANNEL_TIME_BUSY		NL80211_SURVEY_INFO_TIME_BUSY
+// #define NL80211_SURVEY_INFO_CHANNEL_TIME_EXT_BUSY	NL80211_SURVEY_INFO_TIME_EXT_BUSY
+// #define NL80211_SURVEY_INFO_CHANNEL_TIME_RX		NL80211_SURVEY_INFO_TIME_RX
+// #define NL80211_SURVEY_INFO_CHANNEL_TIME_TX		NL80211_SURVEY_INFO_TIME_TX
+
+// nl80211_mntr_flags
+// TODO
+
+// nl80211_mesh_power_mode
+// TODO
+
+// nl80211_meshconf_params
+// TODO
+
+// nl80211_mesh_setup_params
+pub const __NL80211_MESH_SETUP_INVALID: c_int = 0;
+pub const NL80211_MESH_SETUP_ENABLE_VENDOR_PATH_SEL: c_int = 1;
+pub const NL80211_MESH_SETUP_ENABLE_VENDOR_METRIC: c_int = 2;
+pub const NL80211_MESH_SETUP_IE: c_int = 3;
+pub const NL80211_MESH_SETUP_USERSPACE_AUTH: c_int = 4;
+pub const NL80211_MESH_SETUP_USERSPACE_AMPE: c_int = 5;
+pub const NL80211_MESH_SETUP_ENABLE_VENDOR_SYNC: c_int = 6;
+pub const NL80211_MESH_SETUP_USERSPACE_MPM: c_int = 7;
+pub const NL80211_MESH_SETUP_AUTH_PROTOCOL: c_int = 8;
+pub const __NL80211_MESH_SETUP_ATTR_AFTER_LAST: c_int = 9;
+pub const NL80211_MESH_SETUP_ATTR_MAX: c_int = __NL80211_MESH_SETUP_ATTR_AFTER_LAST - 1;
+
+// nl80211_txq_attr
+pub const __NL80211_TXQ_ATTR_INVALID: c_int = 0;
+pub const NL80211_TXQ_ATTR_AC: c_int = 1;
+pub const NL80211_TXQ_ATTR_TXOP: c_int = 2;
+pub const NL80211_TXQ_ATTR_CWMIN: c_int = 3;
+pub const NL80211_TXQ_ATTR_CWMAX: c_int = 4;
+pub const NL80211_TXQ_ATTR_AIFS: c_int = 5;
+pub const __NL80211_TXQ_ATTR_AFTER_LAST: c_int = 6;
+pub const NL80211_TXQ_ATTR_MAX: c_int = __NL80211_TXQ_ATTR_AFTER_LAST - 1;
+
+// nl80211_ac
+pub const NL80211_AC_VO: c_int = 0;
+pub const NL80211_AC_VI: c_int = 1;
+pub const NL80211_AC_BE: c_int = 2;
+pub const NL80211_AC_BK: c_int = 3;
+pub const NL80211_NUM_ACS: c_int = 4;
+
+pub const NL80211_TXQ_ATTR_QUEUE: c_int = NL80211_TXQ_ATTR_AC;
+pub const NL80211_TXQ_Q_VO: c_int = NL80211_AC_VO;
+pub const NL80211_TXQ_Q_VI: c_int = NL80211_AC_VI;
+pub const NL80211_TXQ_Q_BE: c_int = NL80211_AC_BE;
+pub const NL80211_TXQ_Q_BK: c_int = NL80211_AC_BK;
+
+// nl80211_channel_type
+pub const NL80211_CHAN_NO_HT: c_int = 0;
+pub const NL80211_CHAN_HT20: c_int = 1;
+pub const NL80211_CHAN_HT40MINUS: c_int = 2;
+pub const NL80211_CHAN_HT40PLU: c_int = 3;
+
+// nl80211_key_mode
+pub const NL80211_KEY_RX_TX: c_int = 0;
+pub const NL80211_KEY_NO_TX: c_int = 1;
+pub const NL80211_KEY_SET_T: c_int = 2;
+
+// nl80211_chan_width
+pub const NL80211_CHAN_WIDTH_20_NOHT: c_int = 0;
+pub const NL80211_CHAN_WIDTH_20: c_int = 1;
+pub const NL80211_CHAN_WIDTH_40: c_int = 2;
+pub const NL80211_CHAN_WIDTH_80: c_int = 3;
+pub const NL80211_CHAN_WIDTH_80P80: c_int = 4;
+pub const NL80211_CHAN_WIDTH_160: c_int = 5;
+pub const NL80211_CHAN_WIDTH_5: c_int = 6;
+pub const NL80211_CHAN_WIDTH_10: c_int = 7;
+pub const NL80211_CHAN_WIDTH_1: c_int = 8;
+pub const NL80211_CHAN_WIDTH_2: c_int = 9;
+pub const NL80211_CHAN_WIDTH_4: c_int = 10;
+pub const NL80211_CHAN_WIDTH_8: c_int = 11;
+pub const NL80211_CHAN_WIDTH_16: c_int = 12;
+pub const NL80211_CHAN_WIDTH_320: c_int = 13;
+
+// nl80211_bss_scan_width
+// TODO
+
+// nl80211_bss_use_for
+// TODO
+
+// nl80211_bss_cannot_use_reasons
+// TODO
+//#define NL80211_BSS_CANNOT_USE_UHB_PWR_MISMATCH \
+//	NL80211_BSS_CANNOT_USE_6GHZ_PWR_MISMATCH
+
+// nl80211_bss
+pub const __NL80211_BSS_INVALID: c_int = 0;
+pub const NL80211_BSS_BSSID: c_int = 1;
+pub const NL80211_BSS_FREQUENCY: c_int = 2;
+pub const NL80211_BSS_TSF: c_int = 3;
+pub const NL80211_BSS_BEACON_INTERVAL: c_int = 4;
+pub const NL80211_BSS_CAPABILITY: c_int = 5;
+pub const NL80211_BSS_INFORMATION_ELEMENTS: c_int = 6;
+pub const NL80211_BSS_SIGNAL_MBM: c_int = 7;
+pub const NL80211_BSS_SIGNAL_UNSPEC: c_int = 8;
+pub const NL80211_BSS_STATUS: c_int = 9;
+pub const NL80211_BSS_SEEN_MS_AGO: c_int = 10;
+pub const NL80211_BSS_BEACON_IES: c_int = 11;
+pub const NL80211_BSS_CHAN_WIDTH: c_int = 12;
+pub const NL80211_BSS_BEACON_TSF: c_int = 13;
+pub const NL80211_BSS_PRESP_DATA: c_int = 14;
+pub const NL80211_BSS_LAST_SEEN_BOOTTIME: c_int = 15;
+pub const NL80211_BSS_PAD: c_int = 16;
+pub const NL80211_BSS_PARENT_TSF: c_int = 17;
+pub const NL80211_BSS_PARENT_BSSID: c_int = 18;
+pub const NL80211_BSS_CHAIN_SIGNAL: c_int = 19;
+pub const NL80211_BSS_FREQUENCY_OFFSET: c_int = 20;
+pub const NL80211_BSS_MLO_LINK_ID: c_int = 21;
+pub const NL80211_BSS_MLD_ADDR: c_int = 22;
+pub const NL80211_BSS_USE_FOR: c_int = 23;
+pub const NL80211_BSS_CANNOT_USE_REASONS: c_int = 24;
+pub const __NL80211_BSS_AFTER_LAST: c_int = 25;
+pub const NL80211_BSS_MAX: c_int = __NL80211_BSS_AFTER_LAST - 1;
+
+// nl80211_bss_status
+// TODO
+
+// nl80211_auth_type
+pub const NL80211_AUTHTYPE_OPEN_SYSTEM: c_int = 0;
+pub const NL80211_AUTHTYPE_SHARED_KEY: c_int = 1;
+pub const NL80211_AUTHTYPE_FT: c_int = 2;
+pub const NL80211_AUTHTYPE_NETWORK_EAP: c_int = 3;
+pub const NL80211_AUTHTYPE_SAE: c_int = 4;
+pub const NL80211_AUTHTYPE_FILS_SK: c_int = 5;
+pub const NL80211_AUTHTYPE_FILS_SK_PFS: c_int = 6;
+pub const NL80211_AUTHTYPE_FILS_PK: c_int = 7;
+
+pub const __NL80211_AUTHTYPE_NUM: c_int = 8;
+pub const NL80211_AUTHTYPE_MAX: c_int = __NL80211_AUTHTYPE_NUM - 1;
+pub const NL80211_AUTHTYPE_AUTOMATIC: c_int = 9;
+
+// nl80211_key_type
+// TODO
+
+// nl80211_mfp
+// TODO
+
+// nl80211_wpa_versions
+// TODO
+
+// nl80211_key_default_types
+// TODO
+
+// nl80211_key_attributes
+// TODO
+
+// nl80211_tx_rate_attributes
+// TODO
+//#define NL80211_TXRATE_MCS NL80211_TXRATE_HT
+//#define NL80211_VHT_NSS_MAX		8
+
+// struct nl80211_txrate_vht
+// TODO
+
+// #define NL80211_HE_NSS_MAX		8
+
+// struct nl80211_txrate_he
+// TODO
+
+// nl80211_txrate_gi
+// TODO
+
+// nl80211_band
+// TODO
+
+// nl80211_ps_state
+// TODO
+
+// nl80211_attr_cqm
+// TODO
+
+// nl80211_cqm_rssi_threshold_event
+// TODO
+
+// nl80211_tx_power_setting
+// TODO
+
+// nl80211_tid_config
+// TODO
+
+// nl80211_tx_rate_setting
+// TODO
+
+// nl80211_tid_config_attr
+// TODO
+
+// nl80211_tid_config_attr
+// TODO
+
+// nl80211_packet_pattern_attr
+// TODO
+
+// struct nl80211_pattern_support
+// TODO
+
+// #define __NL80211_WOWLAN_PKTPAT_INVALID __NL80211_PKTPAT_INVALID
+// #define NL80211_WOWLAN_PKTPAT_MASK NL80211_PKTPAT_MASK
+// #define NL80211_WOWLAN_PKTPAT_PATTERN NL80211_PKTPAT_PATTERN
+// #define NL80211_WOWLAN_PKTPAT_OFFSET NL80211_PKTPAT_OFFSET
+// #define NUM_NL80211_WOWLAN_PKTPAT NUM_NL80211_PKTPAT
+// #define MAX_NL80211_WOWLAN_PKTPAT MAX_NL80211_PKTPAT
+// #define nl80211_wowlan_pattern_support nl80211_pattern_support
+
+// nl80211_wowlan_triggers
+// TODO
+
+// nl80211_scan_flags
+pub const NL80211_SCAN_FLAG_LOW_PRIORITY: c_int = 1 << 0;
+pub const NL80211_SCAN_FLAG_FLUSH: c_int = 1 << 1;
+pub const NL80211_SCAN_FLAG_AP: c_int = 1 << 2;
+pub const NL80211_SCAN_FLAG_RANDOM_ADDR: c_int = 1 << 3;
+pub const NL80211_SCAN_FLAG_FILS_MAX_CHANNEL_TIME: c_int = 1 << 4;
+pub const NL80211_SCAN_FLAG_ACCEPT_BCAST_PROBE_RESP: c_int = 1 << 5;
+pub const NL80211_SCAN_FLAG_OCE_PROBE_REQ_HIGH_TX_RATE: c_int = 1 << 6;
+pub const NL80211_SCAN_FLAG_OCE_PROBE_REQ_DEFERRAL_SUPPRESSION: c_int = 1 << 7;
+pub const NL80211_SCAN_FLAG_LOW_SPAN: c_int = 1 << 8;
+pub const NL80211_SCAN_FLAG_LOW_POWER: c_int = 1 << 9;
+pub const NL80211_SCAN_FLAG_HIGH_ACCURACY: c_int = 1 << 10;
+pub const NL80211_SCAN_FLAG_RANDOM_SN: c_int = 1 << 11;
+pub const NL80211_SCAN_FLAG_MIN_PREQ_CONTENT: c_int = 1 << 12;
+pub const NL80211_SCAN_FLAG_FREQ_KHZ: c_int = 1 << 13;
+pub const NL80211_SCAN_FLAG_COLOCATED_6GHZ: c_int = 1 << 14;
+
+// TODO: more and more...
+
 // linux/if_packet.h
 pub const PACKET_HOST: c_uchar = 0;
 pub const PACKET_BROADCAST: c_uchar = 1;
