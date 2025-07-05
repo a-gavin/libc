@@ -4193,6 +4193,7 @@ fn test_linux(target: &str) {
                 || name.starts_with("EPOLL")
                 || name.starts_with("F_")
                 || name.starts_with("FALLOC_FL_")
+                || name.starts_with("HWSIM_")
                 || name.starts_with("IFLA_")
                 || name.starts_with("KEXEC_")
                 || name.starts_with("MS_")
