@@ -3552,6 +3552,55 @@ pub const CTRL_ATTR_MCAST_GRP_UNSPEC: c_int = 0;
 pub const CTRL_ATTR_MCAST_GRP_NAME: c_int = 1;
 pub const CTRL_ATTR_MCAST_GRP_ID: c_int = 2;
 
+// drivers/net/wireless/virtual/mac80211_hwsim.h in kernel
+// enum hwsim_commands
+pub const HWSIM_CMD_UNSPEC: c_int = 0;
+pub const HWSIM_CMD_REGISTER: c_int = 1;
+pub const HWSIM_CMD_FRAME: c_int = 2;
+pub const HWSIM_CMD_TX_INFO_FRAME: c_int = 3;
+pub const HWSIM_CMD_NEW_RADIO: c_int = 4;
+pub const HWSIM_CMD_DEL_RADIO: c_int = 5;
+pub const HWSIM_CMD_GET_RADIO: c_int = 6;
+pub const HWSIM_CMD_ADD_MAC_ADDR: c_int = 7;
+pub const HWSIM_CMD_DEL_MAC_ADDR: c_int = 8;
+pub const HWSIM_CMD_START_PMSR: c_int = 9;
+pub const HWSIM_CMD_ABORT_PMSR: c_int = 10;
+pub const HWSIM_CMD_REPORT_PMSR: c_int = 11;
+pub const HWSIM_CMD_CREATE_RADIO: c_int = HWSIM_CMD_NEW_RADIO;
+pub const HWSIM_CMD_DESTROY_RADIO: c_int = HWSIM_CMD_DEL_RADIO;
+
+// enum hwsim_attrs
+pub const HWSIM_ATTR_UNSPEC: c_int = 0;
+pub const HWSIM_ATTR_ADDR_RECEIVER: c_int = 1;
+pub const HWSIM_ATTR_ADDR_TRANSMITTER: c_int = 2;
+pub const HWSIM_ATTR_FRAME: c_int = 3;
+pub const HWSIM_ATTR_FLAGS: c_int = 4;
+pub const HWSIM_ATTR_RX_RATE: c_int = 5;
+pub const HWSIM_ATTR_SIGNAL: c_int = 6;
+pub const HWSIM_ATTR_TX_INFO: c_int = 7;
+pub const HWSIM_ATTR_COOKIE: c_int = 8;
+pub const HWSIM_ATTR_CHANNELS: c_int = 9;
+pub const HWSIM_ATTR_RADIO_ID: c_int = 10;
+pub const HWSIM_ATTR_REG_HINT_ALPHA2: c_int = 11;
+pub const HWSIM_ATTR_REG_CUSTOM_REG: c_int = 12;
+pub const HWSIM_ATTR_REG_STRICT_REG: c_int = 13;
+pub const HWSIM_ATTR_SUPPORT_P2P_DEVICE: c_int = 14;
+pub const HWSIM_ATTR_USE_CHANCTX: c_int = 15;
+pub const HWSIM_ATTR_DESTROY_RADIO_ON_CLOSE: c_int = 16;
+pub const HWSIM_ATTR_RADIO_NAME: c_int = 17;
+pub const HWSIM_ATTR_NO_VIF: c_int = 18;
+pub const HWSIM_ATTR_FREQ: c_int = 19;
+pub const HWSIM_ATTR_PAD: c_int = 20;
+pub const HWSIM_ATTR_TX_INFO_FLAGS: c_int = 21;
+pub const HWSIM_ATTR_PERM_ADDR: c_int = 22;
+pub const HWSIM_ATTR_IFTYPE_SUPPORT: c_int = 23;
+pub const HWSIM_ATTR_CIPHER_SUPPORT: c_int = 24;
+pub const HWSIM_ATTR_MLO_SUPPORT: c_int = 25;
+pub const HWSIM_ATTR_PMSR_SUPPORT: c_int = 26;
+pub const HWSIM_ATTR_PMSR_REQUEST: c_int = 27;
+pub const HWSIM_ATTR_PMSR_RESULT: c_int = 28;
+pub const HWSIM_ATTR_MULTI_RADIO: c_int = 29;
+
 // linux/if_packet.h
 pub const PACKET_HOST: c_uchar = 0;
 pub const PACKET_BROADCAST: c_uchar = 1;
