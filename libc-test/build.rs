@@ -3868,6 +3868,7 @@ fn test_linux(target: &str) {
             "linux/netfilter_ipv6.h",
             "linux/netfilter_ipv6/ip6_tables.h",
             "linux/netlink.h",
+            "linux/nl80211.h",
             "linux/nsfs.h",
             "linux/openat2.h",
             // FIXME(linux): some items require Linux >= 5.6:
@@ -4198,6 +4199,7 @@ fn test_linux(target: &str) {
                 || name.starts_with("KEXEC_")
                 || name.starts_with("MS_")
                 || name.starts_with("MSG_")
+                || name.starts_with("NL80211_")
                 || name.starts_with("OPEN_TREE_")
                 || name.starts_with("P_")
                 || name.starts_with("PF_")
