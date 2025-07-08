@@ -1968,6 +1968,7 @@ fn test_android(target: &str) {
                 "linux/netfilter_ipv6.h",
                 "linux/netfilter_ipv6/ip6_tables.h",
                 "linux/netlink.h",
+                "linux/nl80211.h",
                 "linux/quota.h",
                 "linux/reboot.h",
                 "linux/seccomp.h",
@@ -3868,6 +3869,7 @@ fn test_linux(target: &str) {
             "linux/netfilter_ipv6.h",
             "linux/netfilter_ipv6/ip6_tables.h",
             "linux/netlink.h",
+            "linux/nl80211.h",
             "linux/nsfs.h",
             "linux/openat2.h",
             // FIXME(linux): some items require Linux >= 5.6:
@@ -4198,6 +4200,7 @@ fn test_linux(target: &str) {
                 || name.starts_with("KEXEC_")
                 || name.starts_with("MS_")
                 || name.starts_with("MSG_")
+                || name.starts_with("NL80211_")
                 || name.starts_with("OPEN_TREE_")
                 || name.starts_with("P_")
                 || name.starts_with("PF_")
@@ -4708,6 +4711,16 @@ fn test_linux(target: &str) {
             | "HWSIM_ATTR_PMSR_REQUEST"
             | "HWSIM_ATTR_PMSR_RESULT"
             | "HWSIM_ATTR_MULTI_RADIO" => true,
+
+            "NL80211_CMD_ASSOC_MLO_RECONF"
+            | "NL80211_CMD_EPCS_CFG"
+            | "NL80211_ATTR_VIF_RADIO_MASK"
+            | "NL80211_ATTR_SUPPORTED_SELECTORS"
+            | "NL80211_ATTR_MLO_RECONF_REM_LINKS"
+            | "NL80211_ATTR_EPCS"
+            | "NL80211_ATTR_ASSOC_MLD_EXT_CAPA_OPS"
+            | "NL80211_ATTR_WIPHY_RADIO_INDEX"
+            | "NL80211_MAX_SUPP_SELECTORS" => true,
 
             _ => false,
         }
